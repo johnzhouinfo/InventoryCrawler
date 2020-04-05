@@ -37,10 +37,14 @@ public class CrawlerView extends JFrame {
 
     private void startActionPerformed(ActionEvent e) {
         crawlerController.start();
+        start.setEnabled(false);
+        stop.setEnabled(true);
     }
 
     private void stopActionPerformed(ActionEvent e) {
         crawlerController.stop();
+        start.setEnabled(true);
+        stop.setEnabled(false);
     }
 
     public void setBestbuyStatus(String bestbuyStatus) {
@@ -57,14 +61,23 @@ public class CrawlerView extends JFrame {
 
     public void setLog(String log) {
         this.log.append(log);
+        //set the scroll bar in the end
+        scrollPane1.doLayout();
+        JScrollBar jscrollBar = scrollPane1.getVerticalScrollBar();
+        if (jscrollBar != null)
+            jscrollBar.setValue(jscrollBar.getMaximum());
+
     }
 
     public void setStatus(String status) {
         this.status.setText(status);
     }
 
-    private void testActionPerformed(ActionEvent e) {
+    public void setTestText(String test) {
+        this.test.setText(test);
+    }
 
+    private void testActionPerformed(ActionEvent e) {
         crawlerController.playSound();
     }
 
@@ -155,6 +168,7 @@ public class CrawlerView extends JFrame {
 
         //---- stop ----
         stop.setText("Stop");
+        stop.setEnabled(false);
         stop.addActionListener(e -> stopActionPerformed(e));
         contentPane.add(stop);
         stop.setBounds(new Rectangle(new Point(170, 285), stop.getPreferredSize()));
@@ -175,7 +189,7 @@ public class CrawlerView extends JFrame {
         test.setText("Test");
         test.addActionListener(e -> testActionPerformed(e));
         contentPane.add(test);
-        test.setBounds(430, 70, test.getPreferredSize().width, 19);
+        test.setBounds(420, 70, 84, 19);
 
         //---- label9 ----
         label9.setText("Alarm");

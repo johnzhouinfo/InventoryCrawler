@@ -55,10 +55,10 @@ public class CrawlerController {
             view.setBestbuyStatus(theSource.getStockStatus() ? "In stock" : "Out of stock");
             view.setLog(String.format("%s, Store: %s, Stock Status: %s, Price %s\n", new Date(), bestBuy.getShopName(), bestBuy.getStockStatus() ? "In stock" : "Out of stock", bestBuy.getProductPrice()));
             //If one of store restocked, play alert
-            if (bestBuy.getStockStatus() || theSource.getStockStatus()){
+            if (bestBuy.getStockStatus() || theSource.getStockStatus()) {
                 playSound();
             }
-        }catch (PageNotFoundException e){
+        } catch (PageNotFoundException e) {
             view.setLog(String.format("[ERROR] %s, %s\n", new Date(), e.getMessage()));
         }
 
@@ -91,6 +91,7 @@ public class CrawlerController {
                 setInterval();
             }
         }, delay, period);
+
     }
 
     /**
@@ -110,8 +111,10 @@ public class CrawlerController {
     public void playSound() {
         try {
             if (clip.isRunning()) {
+                view.setTestText("Test");
                 clip.stop();
             } else {
+                view.setTestText("Mute");
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
             }
         } catch (Exception e) {
