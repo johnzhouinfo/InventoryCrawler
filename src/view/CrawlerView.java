@@ -12,12 +12,13 @@ import java.awt.event.ActionEvent;
  * @Author: Lingjue
  * @Date: 2020-04-05
  */
-public class CrawlerView extends JDialog {
+public class CrawlerView extends JFrame {
     CrawlerController crawlerController;
 
     public CrawlerView(CrawlerController crawlerController) {
         initComponents();
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        setTitle("Inventory Crawler");
         this.crawlerController = crawlerController;
         bestbuyStatus.setText("");
         theSourceStatus.setText("");
@@ -102,12 +103,12 @@ public class CrawlerView extends JDialog {
         //---- label2 ----
         label2.setText("Status");
         contentPane.add(label2);
-        label2.setBounds(28, 37, 65, label2.getPreferredSize().height);
+        label2.setBounds(30, 35, 65, label2.getPreferredSize().height);
 
         //---- status ----
         status.setText("Start");
         contentPane.add(status);
-        status.setBounds(105, 35, 156, status.getPreferredSize().height);
+        status.setBounds(105, 35, 65, status.getPreferredSize().height);
 
         //---- label8 ----
         label8.setText("Update in next");
@@ -122,7 +123,7 @@ public class CrawlerView extends JDialog {
         //---- label3 ----
         label3.setText("BestBuy");
         contentPane.add(label3);
-        label3.setBounds(28, 61, 65, label3.getPreferredSize().height);
+        label3.setBounds(30, 60, 65, label3.getPreferredSize().height);
 
         //---- bestbuyStatus ----
         bestbuyStatus.setText("INSTORE");
@@ -132,7 +133,7 @@ public class CrawlerView extends JDialog {
         //---- label5 ----
         label5.setText("The Source");
         contentPane.add(label5);
-        label5.setBounds(new Rectangle(new Point(28, 85), label5.getPreferredSize()));
+        label5.setBounds(new Rectangle(new Point(30, 85), label5.getPreferredSize()));
 
         //---- theSourceStatus ----
         theSourceStatus.setText("INSTORE");
@@ -184,7 +185,7 @@ public class CrawlerView extends JDialog {
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
-            for (int i = 0; i < contentPane.getComponentCount(); i++) {
+            for(int i = 0; i < contentPane.getComponentCount(); i++) {
                 Rectangle bounds = contentPane.getComponent(i).getBounds();
                 preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
                 preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
