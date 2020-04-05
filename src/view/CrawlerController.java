@@ -12,6 +12,10 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * @Author: Lingjue
+ * @Date: 2020-04-05
+ */
 
 public class CrawlerController {
     private TheSource theSource;
@@ -19,9 +23,8 @@ public class CrawlerController {
     private boolean isStart = false;
     private int interval = 300;
     private Timer timer;
-    CrawlerView view;
-    AudioInputStream audioInputStream;
-    Clip clip;
+    private CrawlerView view;
+    private Clip clip;
 
     public CrawlerController() {
         try {
@@ -29,7 +32,7 @@ public class CrawlerController {
             view.setVisible(true);
             theSource = new TheSource("https://www.thesource.ca/en-ca/gaming/nintendo-switch/nintendo-switch-consoles-bundles/nintendo-switch%e2%84%a2-animal-crossing-new-horizons-/p/108086956");
             bestBuy = new BestBuy("https://www.bestbuy.ca/en-ca/product/nintendo-switch-animal-crossing-new-horizons-edition/14425777");
-            audioInputStream = AudioSystem.getAudioInputStream(new File("src/resource/alert.wav").getAbsoluteFile());
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/resource/alert.wav").getAbsoluteFile());
             clip = AudioSystem.getClip();
             clip.open(audioInputStream);
         } catch (Exception e) {
@@ -38,15 +41,9 @@ public class CrawlerController {
 
     }
 
-    private int setInterval() {
-        if (interval == 1) {
-            interval = 300;
-            updateView();
-        }
-        view.setTimer(interval + "s");
-        return --interval;
-    }
-
+    /**
+     * Retrieve data and update view
+     */
     private void updateView() {
         try {
             //The Source
@@ -67,6 +64,21 @@ public class CrawlerController {
 
     }
 
+    /**
+     * Timer Controller
+     */
+    private void setInterval() {
+        if (interval == 1) {
+            interval = 300;
+            updateView();
+        }
+        view.setTimer(interval + "s");
+        --interval;
+    }
+
+    /**
+     * Start to check process
+     */
     public void start() {
         view.setLog(String.format("%s, Start\n", new Date()));
         view.setStatus("START");
@@ -81,6 +93,9 @@ public class CrawlerController {
         }, delay, period);
     }
 
+    /**
+     * Stop process
+     */
     public void stop() {
         interval = 300;
         view.setStatus("STOP");
@@ -89,7 +104,9 @@ public class CrawlerController {
         timer.cancel();
     }
 
-
+    /**
+     * Play alert
+     */
     public void playSound() {
         try {
             if (clip.isRunning()) {

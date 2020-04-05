@@ -9,7 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * @author John
+ * @Author: Lingjue
+ * @Date: 2020-04-05
  */
 public class CrawlerView extends JDialog {
     CrawlerController crawlerController;
@@ -26,7 +27,7 @@ public class CrawlerView extends JDialog {
 
     private void quitActionPerformed(ActionEvent e) {
         crawlerController.stop();
-        this.dispose();
+        System.exit(0);
     }
 
     private void clearActionPerformed(ActionEvent e) {

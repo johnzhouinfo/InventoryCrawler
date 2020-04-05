@@ -7,6 +7,10 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
+/**
+ * @Author: Lingjue
+ * @Date: 2020-04-05
+ */
 public class TheSource {
     private final String SHOP_NAME = "The Source";
     private String PRODUCT_NAME;
