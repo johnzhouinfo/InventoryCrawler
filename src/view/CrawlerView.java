@@ -102,6 +102,7 @@ public class CrawlerView extends JFrame {
 
         //======== this ========
         setMinimumSize(new Dimension(540, 380));
+        setResizable(false);
         Container contentPane = getContentPane();
         contentPane.setLayout(null);
 
@@ -157,32 +158,32 @@ public class CrawlerView extends JFrame {
             scrollPane1.setViewportView(log);
         }
         contentPane.add(scrollPane1);
-        scrollPane1.setBounds(7, 109, 508, 171);
+        scrollPane1.setBounds(5, 109, 525, 191);
 
         //---- start ----
         start.setText("Start");
         start.addActionListener(e -> startActionPerformed(e));
         contentPane.add(start);
-        start.setBounds(new Rectangle(new Point(85, 285), start.getPreferredSize()));
+        start.setBounds(85, 310, 75, start.getPreferredSize().height);
 
         //---- stop ----
         stop.setText("Stop");
         stop.setEnabled(false);
         stop.addActionListener(e -> stopActionPerformed(e));
         contentPane.add(stop);
-        stop.setBounds(new Rectangle(new Point(170, 285), stop.getPreferredSize()));
+        stop.setBounds(180, 310, 75, stop.getPreferredSize().height);
 
         //---- clear ----
         clear.setText("Clear");
         clear.addActionListener(e -> clearActionPerformed(e));
         contentPane.add(clear);
-        clear.setBounds(255, 285, 75, clear.getPreferredSize().height);
+        clear.setBounds(275, 310, 75, clear.getPreferredSize().height);
 
         //---- quit ----
         quit.setText("Quit");
         quit.addActionListener(e -> quitActionPerformed(e));
         contentPane.add(quit);
-        quit.setBounds(340, 285, 85, quit.getPreferredSize().height);
+        quit.setBounds(370, 310, 75, quit.getPreferredSize().height);
 
         //---- test ----
         test.setText("Test");

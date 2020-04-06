@@ -6,6 +6,7 @@ new FormModel {
 		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
 			"minimumSize": new java.awt.Dimension( 540, 380 )
+			"resizable": false
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Nintendo Switch Animal Crossing Inventory Checker"
@@ -83,10 +84,10 @@ new FormModel {
 					name: "log"
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 7
+				"x": 5
 				"y": 109
-				"width": 508
-				"height": 171
+				"width": 525
+				"height": 191
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "start"
@@ -94,7 +95,8 @@ new FormModel {
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "startActionPerformed", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 85
-				"y": 285
+				"y": 310
+				"width": 75
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "stop"
@@ -102,16 +104,17 @@ new FormModel {
 				"enabled": false
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "stopActionPerformed", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 170
-				"y": 285
+				"x": 180
+				"y": 310
+				"width": 75
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "clear"
 				"text": "Clear"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "clearActionPerformed", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 255
-				"y": 285
+				"x": 275
+				"y": 310
 				"width": 75
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -119,9 +122,9 @@ new FormModel {
 				"text": "Quit"
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "quitActionPerformed", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 340
-				"y": 285
-				"width": 85
+				"x": 370
+				"y": 310
+				"width": 75
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "test"
@@ -143,7 +146,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 525, 390 )
+			"size": new java.awt.Dimension( 535, 390 )
 		} )
 	}
 }
