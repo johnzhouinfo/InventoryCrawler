@@ -17,7 +17,7 @@ public class CrawlerView extends JFrame {
 
     public CrawlerView(CrawlerController crawlerController) {
         initComponents();
-        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
         setTitle("Inventory Crawler");
         this.crawlerController = crawlerController;
         bestbuyStatus.setText("");
@@ -27,7 +27,6 @@ public class CrawlerView extends JFrame {
     }
 
     private void quitActionPerformed(ActionEvent e) {
-        crawlerController.stop();
         System.exit(0);
     }
 

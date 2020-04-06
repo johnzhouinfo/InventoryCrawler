@@ -52,7 +52,7 @@ public class CrawlerController {
             view.setLog(String.format("%s, Store: %s, Stock Status: %s, Price %s\n", new Date(), theSource.getShopName(), theSource.getStockStatus() ? "In stock" : "Out of stock", theSource.getProductPrice()));
             //BestBuy
             bestBuy.updateStatus();
-            view.setBestbuyStatus(theSource.getStockStatus() ? "In stock" : "Out of stock");
+            view.setBestbuyStatus(bestBuy.getStockStatus() ? "In stock" : "Out of stock");
             view.setLog(String.format("%s, Store: %s, Stock Status: %s, Price %s\n", new Date(), bestBuy.getShopName(), bestBuy.getStockStatus() ? "In stock" : "Out of stock", bestBuy.getProductPrice()));
             //If one of store restocked, play alert
             if (bestBuy.getStockStatus() || theSource.getStockStatus()) {
