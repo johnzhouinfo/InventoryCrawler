@@ -48,20 +48,25 @@ public class CrawlerController {
         try {
             //The Source
             theSource.updateStatus();
-            view.setTheSourceStatus(theSource.getStockStatus() ? "In stock" : "Out of stock");
-            view.setLog(String.format("%s, Store: %s, Stock Status: %s, Price %s\n", new Date(), theSource.getShopName(), theSource.getStockStatus() ? "In stock" : "Out of stock", theSource.getProductPrice()));
+            view.setLog(String.format("%s, Store: %s, Stock Status: %s, Price: %s\n", new Date(), theSource.getShopName(), theSource.getStockStatus() ? "In stock" : "Out of stock", theSource.getProductPrice()));
             //BestBuy
             bestBuy.updateStatus();
-            view.setBestbuyStatus(bestBuy.getStockStatus() ? "In stock" : "Out of stock");
-            view.setLog(String.format("%s, Store: %s, Stock Status: %s, Price %s\n", new Date(), bestBuy.getShopName(), bestBuy.getStockStatus() ? "In stock" : "Out of stock", bestBuy.getProductPrice()));
+            view.setLog(String.format("%s, Store: %s, Stock Status: %s, Price: %s\n", new Date(), bestBuy.getShopName(), bestBuy.getStockStatus() ? "In stock" : "Out of stock", bestBuy.getProductPrice()));
             //If one of store restocked, play alert
             if (bestBuy.getStockStatus() || theSource.getStockStatus()) {
+                if (bestBuy.getStockStatus()) {
+                    view.setBestbuyStatus(bestBuy.getStockStatus() ? "In stock" : "Out of stock");
+                    view.setLog(String.format("[ALERT] %s, BestBuy gets In Stock!", new Date()));
+                }
+                if (theSource.getStockStatus()) {
+                    view.setTheSourceStatus(theSource.getStockStatus() ? "In stock" : "Out of stock");
+                    view.setLog(String.format("[ALERT] %s, The Source gets In Stock!", new Date()));
+                }
                 playSound();
             }
         } catch (PageNotFoundException e) {
             view.setLog(String.format("[ERROR] %s, %s\n", new Date(), e.getMessage()));
         }
-
     }
 
     /**

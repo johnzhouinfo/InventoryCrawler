@@ -158,32 +158,32 @@ public class CrawlerView extends JFrame {
             scrollPane1.setViewportView(log);
         }
         contentPane.add(scrollPane1);
-        scrollPane1.setBounds(5, 109, 525, 191);
+        scrollPane1.setBounds(5, 109, 515, 191);
 
         //---- start ----
         start.setText("Start");
         start.addActionListener(e -> startActionPerformed(e));
         contentPane.add(start);
-        start.setBounds(85, 310, 75, start.getPreferredSize().height);
+        start.setBounds(85, 305, 75, start.getPreferredSize().height);
 
         //---- stop ----
         stop.setText("Stop");
         stop.setEnabled(false);
         stop.addActionListener(e -> stopActionPerformed(e));
         contentPane.add(stop);
-        stop.setBounds(180, 310, 75, stop.getPreferredSize().height);
+        stop.setBounds(180, 305, 75, stop.getPreferredSize().height);
 
         //---- clear ----
         clear.setText("Clear");
         clear.addActionListener(e -> clearActionPerformed(e));
         contentPane.add(clear);
-        clear.setBounds(275, 310, 75, clear.getPreferredSize().height);
+        clear.setBounds(275, 305, 75, clear.getPreferredSize().height);
 
         //---- quit ----
         quit.setText("Quit");
         quit.addActionListener(e -> quitActionPerformed(e));
         contentPane.add(quit);
-        quit.setBounds(370, 310, 75, quit.getPreferredSize().height);
+        quit.setBounds(370, 305, 75, quit.getPreferredSize().height);
 
         //---- test ----
         test.setText("Test");
